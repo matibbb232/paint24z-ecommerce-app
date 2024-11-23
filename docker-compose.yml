@@ -18,6 +18,15 @@ services:
       - "80:80"
     depends_on:
       - django_gunicorn
+  react_app:
+    build:
+      context: ./Frontend
+    container_name: docker-next
+    ports:
+      - "3000:3000"
+    volumes:
+      - static:/static
+      - /app/node_modules
 
 volumes:
   static:
