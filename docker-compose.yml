@@ -31,10 +31,10 @@ services:
     build:
       context: ./Database
     container_name: p-c
-    volumes:
-      - ./db.sql:/docker-entrypoint-initdb.d/db.sql
     ports:
       - "5432:5432"
+    volumes:
+      - ./database:/var/lib/postgresql/data
     restart: always
 
 volumes:
