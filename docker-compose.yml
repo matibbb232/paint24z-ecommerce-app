@@ -2,15 +2,17 @@
 
 services:
   django_gunicorn:
+    container_name: backend
     volumes:
       - static:/static
     env_file:
       - ./Backend/.env
     build:
       context: ./Backend
-    ports:
-      - "8000:8000"
+    networks: 
+      - dev
   nginx:
+    container_name: nginx
     build: ./nginx
     volumes:
       - static:/static
@@ -18,24 +20,30 @@ services:
       - "80:80"
     depends_on:
       - django_gunicorn
+    networks:
+      - dev
   react_app:
+    container_name: frontend
     build:
       context: ./Frontend
-    container_name: docker-next
-    ports:
-      - "3000:3000"
     volumes:
       - static:/static
       - /app/node_modules
+    networks:
+      - dev
   db:
+    container_name: database # or maybe "db"?
     build:
       context: ./Database
-    container_name: p-c
-    ports:
-      - "5432:5432"
     volumes:
       - ./database:/var/lib/postgresql/data
     restart: always
+    networks:
+      - dev
 
 volumes:
   static:
+
+networks:
+  dev:
+    driver: bridge
