@@ -1,7 +1,7 @@
-# E-commerce app for electronics shop
+# E-commerce app for an electronics shop
 WIP
 
-## Runing with nginx as a server using Docker compose
-```
-docker-compose up --build
+## Runing with nginx as a server using `docker compose`
+```sh
+docker compose up --build
 ```
