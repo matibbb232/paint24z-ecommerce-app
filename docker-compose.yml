@@ -12,6 +12,7 @@ services:
     networks: 
       - dev
   nginx:
+    restart: always
     container_name: nginx
     build: ./nginx
     volumes:
@@ -20,12 +21,15 @@ services:
       - "80:80"
     depends_on:
       - django_gunicorn
+      - react_app
     networks:
       - dev
   react_app:
     container_name: frontend
     build:
       context: ./Frontend
+    environment:
+      - NODE_ENV=production
     networks:
       - dev
   db:
