@@ -9,6 +9,8 @@ services:
       - ./Backend/.env
     build:
       context: ./Backend
+    ports: # TODO: DEBUG only; remove
+      - "8000:8000"
     networks: 
       - dev
   nginx:
@@ -30,6 +32,8 @@ services:
       context: ./Frontend
     environment:
       - NODE_ENV=production
+    ports: # TODO: DEBUG only; remove
+      - "3000:3000"
     networks:
       - dev
   db:
