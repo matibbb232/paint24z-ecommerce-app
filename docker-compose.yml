@@ -26,9 +26,6 @@ services:
     container_name: frontend
     build:
       context: ./Frontend
-    volumes:
-      - static:/static
-      - /app/node_modules
     networks:
       - dev
   db:
