@@ -36,7 +36,18 @@ services:
       - "3000:3000"
     networks:
       - dev
+  image_service:
+    container_name: image_service
+    build:
+      context: ./Database/image_service
+    volumes: 
+      - ./Database/image_service/images:/service/images
+    restart: always
+    networks:
+      - dev
   db:
+    depends_on:
+      - image_service
     container_name: database # or maybe "db"?
     build:
       context: ./Database
