@@ -1,9 +1,9 @@
 [submodule "Backend"]
 	path = Backend
-	url = https://gitlab-stud.elka.pw.edu.pl/paint24z/Backend.git
+	url = https://github.com/matibbb232/paint24z-backend
 [submodule "Frontend"]
 	path = Frontend
-	url = https://gitlab-stud.elka.pw.edu.pl/paint24z/Frontend.git
+	url = https://github.com/matibbb232/paint24z-frontend
 [submodule "Database"]
 	path = Database
-	url = https://gitlab-stud.elka.pw.edu.pl/paint24z/Database.git
+	url = https://github.com/matibbb232/paint24z-database
